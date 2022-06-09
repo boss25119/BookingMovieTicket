@@ -1,0 +1,28 @@
+﻿@model FilmTicketReservation.Models.Movie
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+<div class= "container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Your Order !</h2>
+        </div>
+    </div>
+</div>
+<div class= "card-container d-flex flex-row justify-content-between align-items-center" >
+       <div class="card" style="width: 18rem; ">
+          <div class = "card-img">
+            <img src= @Html.DisplayFor(model => model.ImgUrl) alt="Film-image" width = "220px" height="350px" />
+          </div>
+          <div class="card-body">
+            <p class="card-text fw-bold" style = "height: 4.8rem;">
+                Your order for the film: @Html.DisplayFor(model => model.Title) is ready!
+            </p>
+            <p class="card-text fw-bold" style = "height: 4.8rem;">
+                Total price for your order is : $ @Html.DisplayFor(model => model.Price)
+            </p>
+            <a asp-controller="CheckOut" asp-action="Thankyou" class="btn btn-secondary mt-4" style="width : 150px">Confirm your order!</a>
+          </div>
+       </div>
+</div>

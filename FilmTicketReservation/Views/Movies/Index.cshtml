@@ -1,0 +1,81 @@
+﻿@model IEnumerable<FilmTicketReservation.Models.Movie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class= "container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Films</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-action="Create" class= "btn btn-primary">
+                <i class="bi bi-plus-circle"></i>
+                Create a New Film
+            </a>
+        </div>
+    </div>
+    
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ImgUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Character)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShowTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img src= @Html.DisplayFor(modelItem => item.ImgUrl) alt=@Html.DisplayFor(modelItem => item.Title) width = "220px" height="350px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Character)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

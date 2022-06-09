@@ -1,0 +1,27 @@
+﻿@model IEnumerable<FilmTicketReservation.Models.Movie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class= "container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Films</h2>
+        </div>
+    </div>
+</div>
+<div class= "card-container d-flex flex-row justify-content-between align-items-center" >
+    @foreach (var item in Model) {
+       <div class="card" style="width: 18rem; ">
+          <img class="card-img-top" style = "height : 20rem;" src=@Html.DisplayFor(modelItem => item.ImgUrl) alt="film card">
+          <div class="card-body">
+            <p class="card-text fw-bold" style = "height: 4.8rem;">@Html.DisplayFor(modelItem => item.Title)</p>
+            <a asp-action="Create" asp-route-id="@item.Id" class="btn btn-primary w-100">Orders</a>
+          </div>
+       </div>
+    
+    }
+</div>
+

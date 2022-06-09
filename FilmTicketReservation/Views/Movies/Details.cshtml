@@ -1,0 +1,37 @@
+﻿@model FilmTicketReservation.Models.Movie
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+ <hr />
+ <div class="container d-flex">
+     <div class = "card-img">
+        <img src= @Html.DisplayFor(model => model.ImgUrl) alt=@Html.DisplayFor(model => model.Title) width = "220px" height="350px" />
+     </div>
+     <div class = "content container-fluid">
+             <h1>@Html.DisplayFor(model => model.Title)</h1>
+         <table class = "table">
+             <thead>
+             </thead>
+             <tbody>
+                <tr>
+                  <th scope="row">@Html.DisplayNameFor(model => model.Character)</th>
+                  <td>@Html.DisplayFor(model => model.Character)</td>
+                </tr>
+                <tr>
+                  <th scope="row">@Html.DisplayNameFor(model => model.Description)</th>
+                  <td>@Html.DisplayFor(model => model.Description)</td>
+                </tr>
+                <tr>
+                  <th scope="row">@Html.DisplayNameFor(model => model.Price)</th>
+                  <td>$@Html.DisplayFor(model => model.Price)</td>
+                </tr>
+            </tbody>
+         </table>
+        
+        <a class="btn btn-primary" asp-controller= "Orders" asp-action= "Create">Order</a> 
+     </div>
+</div>
+
